@@ -112,11 +112,6 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-span.Alt {
-  color: #626171;
-  font-size: 14px;
-}
-
 p {
   line-height: 1.86;
   text-align: center;
@@ -180,7 +175,7 @@ h3 {
   &.Title {
     border-bottom: 1px solid #090721;
     margin: 0;
-    padding: 0.75em 1rem;
+    padding: 0.75em 1.5em;
   }
 }
 
@@ -298,14 +293,6 @@ textarea, input, select {
     justify-content: center;
   }
 
-  &.Start-Y {
-    align-items: flex-start;
-  }
-
-  &.Start-X {
-    justify-content: flex-start;
-  }
-
   &.End-Y {
     align-items: flex-end;
   }
@@ -320,14 +307,6 @@ textarea, input, select {
 
   &.Separate-X {
     justify-content: space-between;
-  }
-
-  &.Stretch-Y {
-    align-items: stretch;
-  }
-
-  &.Stretch-X {
-    justify-content: stretch;
   }
 
   &.Wrap {
@@ -347,14 +326,6 @@ textarea, input, select {
     align-items: center;
   }
 
-  &.Start-Y {
-    justify-content: flex-start;
-  }
-
-  &.Start-X {
-    align-items: flex-start;
-  }
-
   &.End-Y {
     justify-content: flex-end;
   }
@@ -371,21 +342,9 @@ textarea, input, select {
     align-items: space-between;
   }
 
-  &.Stretch-Y {
-    justify-content: stretch;
-  }
-
-  &.Stretch-X {
-    align-items: stretch;
-  }
-
   &.Wrap {
     flex-flow: column wrap;
   }
-}
-
-.Flex-Dynamic {
-  flex: 1 0 auto;
 }
 
 .Flex-Spacer {
@@ -418,12 +377,7 @@ textarea, input, select {
   align-items: stretch;
 
   .Title {
-    display: flex;
     flex: 0 0 auto;
-    text-align: left;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .Body {
@@ -458,15 +412,14 @@ textarea, input, select {
 .Layout-Default {
   display: grid;
   grid-template-areas:   "navbar  sidebar"
-                         "content sidebar"
                          "content sidebar";
   grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr 1fr;
+  grid-template-rows: auto 1fr;
   height: 100%;
   overflow: auto;
 }
 
-.Layout-Wallet, .Layout-Dash {
+.Layout-Wallet {
   display: grid;
   grid-template-areas:   "sidenav   navbar"
                          "sidenav  content";
@@ -475,7 +428,8 @@ textarea, input, select {
   height: 100%;
 
   &::before {
-    content: "You are connected to the main network. ";
+    content: "Careful! This is a beta app. You are connected to the main network. "
+             "If you just want to test it out, connect to a test network, or to a local node!";
     position: fixed;
     right: 1ch;
     top: 1ch;
@@ -485,7 +439,7 @@ textarea, input, select {
     max-width: 50vw;
     z-index: 1000000;
     pointer-events: none;
-    text-align: center;
+    text-align: right;
     opacity: 0;
     transition: opacity 0.5s;
   }
@@ -494,8 +448,3 @@ textarea, input, select {
     opacity: 0.8;
   }
 }
-
-.Layout-Dash {
-  .Card.Content .Body { overflow: auto }
-}
-
