@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactElement, ReactNode } from 'react';
 import { render } from 'react-dom';
 import './styles/index.scss';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { g, nw } from 'utils';
 import * as Components from 'components';
 import { ModalBase } from 'components/modals/ModalBase';
@@ -63,9 +63,9 @@ export const NodeContext = React.createContext({
 });
 
 function App() {
-	let [network, set_network] = React.useState(nw.test_net);
-	let [node, set_current_node] = React.useState(nw.test_net.hosts[0]);
-	let [read_only, set_current_readonly] = React.useState(nw.test_net.readOnlys[0]);
+	let [network, set_network] = React.useState(nw.main_net);
+	let [node, set_current_node] = React.useState(nw.main_net.hosts[0]);
+	let [read_only, set_current_readonly] = React.useState(nw.main_net.readOnlys[0]);
 	let [sidenav_expanded, set_sidenav_expanded] = React.useState(false);
 	let [modal_stack, set_modal_stack] = React.useState<Modal<any>[]>([]);
 	let [notif_stack, set_notif_stack] = React.useState<Notif[]>([]);
@@ -124,9 +124,9 @@ function App() {
 	return (<>
 		<NodeContext.Provider value={initial_data}>
 			<LayoutContext.Provider value={initial_layout}>
-				<BrowserRouter>
+				<HashRouter>
 					<Components.Routes />
-				</BrowserRouter>
+				</HashRouter>
 				<Components.ModalHost />
 				<Components.NotifHost />
 			</LayoutContext.Provider>
