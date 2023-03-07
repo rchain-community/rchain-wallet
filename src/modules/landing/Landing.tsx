@@ -75,11 +75,11 @@ export function Landing() {
         <h1>
           <span>Community driven</span>
           <span className="Highlight">
-            RChain wallet
+            Rho Vision wallet
           </span>
         </h1>
         <h3 className="BigScreen">
-          <span>Locally stored web interface for interaction with RChain platform</span>
+          <span>Locally stored web interface for interaction with the Rho Vision platform</span>
         </h3>
       </div>
 
@@ -97,7 +97,7 @@ export function Landing() {
           <img src={Assets.globe} alt="Globe"/>
           <h2>Access your wallet</h2>
           <h4 className="Dynamic">
-            Connect to the RChain platform to check your balance, transfer REV and deploy Rholang code.
+            Connect to the Rho Vision platform to check your balance, transfer REV and deploy Rholang code.
           </h4>
           <button onClick={navigate(history, "/access")}>Access</button>
         </div>
@@ -112,7 +112,7 @@ export function Landing() {
           </h3>}
         content={
           <p>
-            RChainWallet is a free, open-source web application that provides a simple interface to interact with the RChain platform.
+            RhoWallet is a free, open-source web application that provides a simple interface to interact with the Rho Vision platform.
           </p>}/>
 
       <Components.Expander
@@ -137,19 +137,19 @@ export function Landing() {
         content={
           <p>
             If you are a coop member, please use the <b>#wallet</b> channel on
-            <a className="Alt" href="https://discord.gg/NWkQnfH">the official Discord server.</a>
+            <a className="Alt" href="https://discord.gg/C2YW7WvMZv">the official Discord server.</a>
             Otherwise, feel free to
-            <a className="Alt" href="https://t.me/RChainOfficial">ask a question on Telegram.</a>
+            <a className="Alt" href="https://t.me/+m0-lK94Ib-IzZjBi">ask a question on Telegram.</a>
           </p>}/>
 
       <div className="Footer">
         <div className="Logo">
           <img className="BigScreen"
                src={Assets.logo_white}
-               alt="RChainWallet Logo" />
+               alt="RhoVisionWallet Logo" />
           <img className="SmallScreen"
                src={Assets.logo_white_oneline}
-               alt="RChainWallet Logo" />
+               alt="RhoVisionWallet Logo" />
         </div>
 
         <div className="Column Flex-Spacer">
