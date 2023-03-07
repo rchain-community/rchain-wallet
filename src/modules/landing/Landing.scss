@@ -60,16 +60,14 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    height: calc(100vh - 270px);
     text-align: center;
-
-    padding: 0 120px;
+    padding: 0 80px;
     @media only screen and (max-width: 900px) {
       padding: 0;
-      padding-bottom: 135px;
+      padding-bottom: 80px;
     }
 
-    padding-bottom: 135px;
+    padding-bottom: 80px;
   }
 
   .CardList {
