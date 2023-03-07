@@ -29,6 +29,6 @@ export function Sidebar() {
   if (component !== Landing) { return <></>; }
 
   return (
-   <!-- icons removed -->
+
   );
 }
