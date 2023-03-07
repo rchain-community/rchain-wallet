@@ -109,11 +109,11 @@ export function Landing() {
       <Components.Expander
         title={
           <h3 className="NoMargin Left">
-            What is RChainWallet?
+            What is REV-Wallet?
           </h3>}
         content={
           <p>
-            RhoWallet is a free, open-source web application that provides a simple interface to interact with the Rho Vision platform.
+            REV-Wallet is a free, open-source web application that provides a simple interface to interact with the Rho Vision platform.
           </p>}/>
 
       <Components.Expander
@@ -137,7 +137,7 @@ export function Landing() {
           </h3>}
         content={
           <p>
-            If you are a coop member, please use the <b>#wallet</b> channel on
+            Please use the <b>#wallet</b> channel on
             <a className="Alt" href="https://discord.gg/C2YW7WvMZv">the official Discord server.</a>
             Otherwise, feel free to
             <a className="Alt" href="https://t.me/+m0-lK94Ib-IzZjBi">ask a question on Telegram.</a>
@@ -164,6 +164,7 @@ export function Landing() {
 
               <div className="Content">
                 <ul>
+                  <li><a href="https://rhovision.org">Rho Vision</a></li>
                   <li><a href="https://rchain-community.github.io">Rholang</a></li>
                   <li><a href="https://revdefine.io">Revdefine</a></li>
                   <li><a href="https://dappy.tech">Dappy</a></li>
