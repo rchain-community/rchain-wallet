@@ -75,12 +75,13 @@ export function Landing() {
         <h1>
           <span>Community driven</span>
           <span className="Highlight">
-            Rho Vision wallet
+            REV wallet
           </span>
         </h1>
         <h3 className="BigScreen">
           <span>Locally stored web interface for interaction with the Rho Vision platform</span>
         </h3>
+        <p>(Honoring REV tokens from the former RChain cooperative)</p>
       </div>
 
       <div className="CardList LargeMargin">
