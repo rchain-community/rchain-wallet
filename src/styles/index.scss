@@ -160,7 +160,7 @@ h1 {
 h2 {
   /* ~35px @ 360px width */
   /* ~50px @ 1440px width */
-  font-size: max(min(1.38 * 1vw + 33.3px, 50px), 35px);
+  font-size: max(min(1 * 1vw + 33.3px, 50px), 35px);
   font-weight: bold;
 
   &.Alt {
