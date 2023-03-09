@@ -16,7 +16,7 @@
     color: white;
 
     button {
-      --button-color: #8b0430;
+      --button-color: #044c8b;
       position: relative;
       display: flex;
       flex-flow: row nowrap;
@@ -38,7 +38,7 @@
       }
 
       &:hover {
-          --button-color: #cc1e46;
+          --button-color: #3880bf;
       }
 
       @at-root .Expanded#{&} {
