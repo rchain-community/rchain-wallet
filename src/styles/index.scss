@@ -8,9 +8,9 @@ body {
   width: 100vw;
   min-height: 100vh;
 
-  background: #131033;
+  background: #04232f;
   overflow: hidden;
-	scrollbar-color: #8b0430 #131033;
+	scrollbar-color: #2B4968 #04232f;
 	scrollbar-width: auto;
 }
 
@@ -23,7 +23,7 @@ button {
   padding: 1em;
   border-radius: 3px;
   border: none;
-  background-color: #8b0430;
+  background-color: #044c8b;
   color: white;
   transition: background 0.1s, color 0.1s;
   width: 100%;
@@ -35,7 +35,7 @@ button {
   cursor: pointer;
 
   &.Subtle {
-    background-color: #090721;
+    background-color: #3070a8;
 
     &:hover {
       background: transparent;
