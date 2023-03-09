@@ -21,10 +21,10 @@ function pick_random<T>(array: T[]): T {
 
 function blink_light(light: SVGPathElement, on: boolean) {
   if (on) {
-    light.style.fill = "#6161b5";
-    light.style.filter = "drop-shadow(0 0 2px #6161b5)";
+    light.style.fill = "#61ACB5";
+    light.style.filter = "drop-shadow(0 0 2px #61ACB5)";
   } else {
-    light.style.fill = "#332b68";
+    light.style.fill = "#2B4968";
     light.style.filter = "";
   }
 }
