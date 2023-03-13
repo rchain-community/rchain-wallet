@@ -1,5 +1,18 @@
 # RChainWallet
-
+## build
+```
+npm install
+npm run start # localhost:3000
+npm run build # static optimized build in build directory.
+```
+### on rhobot.net
+start it with "nohup" to start it with "no hangup" when the terminal disconnected. Now restarting meant killing all the processes:
+```
+rchain@rhobot:~/rchain-wallet$ kill $(ps aux | grep rchain-wallet| grep -v grep | cut -c7-15)
+rchain@rhobot:~/rchain-wallet$ nohup npm start &
+[1] 4138
+rchain@rhobot:~/rchain-wallet$ nohup: ignoring input and appending output to 'nohup.out'
+```
 ## TASKS (MVP)
 
 - [x] Landing page
