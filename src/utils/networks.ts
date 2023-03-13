@@ -33,7 +33,7 @@ export interface RChainNetwork {
 	readonly faucet?: string;
 }
 
-export type NetworkName = 'localnet' | 'testnet-bm' | 'testnet' | 'mainnet';
+export type NetworkName = 'localnet' | 'rhobot-bm' | 'rhobot' | 'mainnet';
 
 const default_ports_ssl: Partial<RNodeInfo> = { grpc: 40401, https: 443, httpAdmin: 40405 };
 
@@ -53,31 +53,33 @@ export const local_net: RChainNetwork = {
 	readOnlys: u.range(0,5).map((n)=>readonly_tag(localnet_host(n)))
 };
 
-function bm_testnet_host(n: number) {
+function bm_rhobot_host() { // (n: number) {
 	return {
-		domain: `node${n}.bm.testnet.rchain.coop`,
-		instance: `node${n}`,
+		// domain: `node${n}.bm.rhobot.rchain.coop`,
+		domain: 'rhobot.net',
+	instance:  'rnodeapi' ,
 		...default_ports_ssl
 	};
 }
 
 export const test_net_block_merge: RChainNetwork = {
 	title: 'RChain testing network (block-merge)',
-	name: 'testnet-bm',
-	hosts: u.range(0, 4).map(bm_testnet_host),
+	name: 'rhobot-bm',
+	hosts: u.range(0, 4).map(bm_rhobot_host),
 	readOnlys: [
 		readonly_tag({
-			domain: 'observer.bm.testnet.rchain.coop',
+			domain: 'observer.bm.rhobot.rchain.coop',
 			instance: 'observer',
 			...default_ports_ssl
 		}),
 	],
-	faucet: 'https://status.bm.testnet.rchain.coop/testnet/faucet',
+	faucet: 'https://status.bm.rhobot.rchain.coop/rhobot/faucet',
 };
 
-function testnet_host(n: number) {
+function rhobot_host(n: number) {
 	return {
-		domain: `node${n}.testnet.rchain.coop`,
+		//  domain: `node${n}.rhobot.rchain.coop`,
+		domain: 'rnodeapi.rhobot.net',
 		instance: `node${n}`,
 		...default_ports_ssl,
 	}
@@ -85,13 +87,13 @@ function testnet_host(n: number) {
 
 export const test_net: RChainNetwork = {
 	title: 'RChain testing network',
-	name: 'testnet',
-	hosts: u.range(0, 4).map(testnet_host),
+	name: 'rhobot',
+	hosts: u.range(0, 1).map(rhobot_host),
 	readOnlys: [
-		readonly_tag({ domain: 'observer.testnet.rchain.coop', instance: 'observer', ...default_ports_ssl }),
+		readonly_tag({ domain: 'rnodeapi.rhobot.net', instance: 'observer', ...default_ports_ssl }),
 		readonly_tag({ domain: 'rnode1.rhobot.net', ...default_ports_ssl }),
 	],
-	faucet: 'https://status.rchain.coop/testnet/faucet'
+	faucet: 'https://status.rchain.coop/rhobot/faucet'
 };
 
 function mainnet_host(n: number) {

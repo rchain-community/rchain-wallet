@@ -55,17 +55,17 @@ export const LayoutContext = React.createContext({
 });
 
 export const NodeContext = React.createContext({
-	network: nw.test_net,
-	node: nw.test_net.hosts[0],
+	network: nw.main_net,
+	node: nw.main_net.hosts[0],
 	set_node: (_net_i: number, _host_i: number) => { return; },
-	read_only: nw.test_net.readOnlys[0],
+	read_only: nw.main_net.readOnlys[0],
 	set_read_only: (_ro_i: number) => { return; }
 });
 
 function App() {
-	let [network, set_network] = React.useState(nw.test_net);
-	let [node, set_current_node] = React.useState(nw.test_net.hosts[0]);
-	let [read_only, set_current_readonly] = React.useState(nw.test_net.readOnlys[0]);
+	let [network, set_network] = React.useState(nw.main_net);
+	let [node, set_current_node] = React.useState(nw.main_net.hosts[0]);
+	let [read_only, set_current_readonly] = React.useState(nw.main_net.readOnlys[0]);
 	let [sidenav_expanded, set_sidenav_expanded] = React.useState(false);
 	let [modal_stack, set_modal_stack] = React.useState<Modal<any>[]>([]);
 	let [notif_stack, set_notif_stack] = React.useState<Notif[]>([]);
