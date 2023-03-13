@@ -15,8 +15,8 @@ export function Navigation() {
   function Menu(show_menu:boolean){
     if (show_menu && !in_wallet) {
       return <div className="Menu Column Center-X Center-Y">
-        <a href="https://blog.rchain.coop/">Community</a>
-        <a href="https://rchain.coop/community.html">Blog</a>
+        <a href="https://discord.gg/C2YW7WvMZv">Discord community</a>
+        <a href="https://rhovision.org">Rho Vision website</a>
         {/*<a href="https://github.com">Support</a>*/}
       </div>;
     }
@@ -49,8 +49,8 @@ export function Navigation() {
 
   function Links() {
     if (!in_wallet) {
-      return (<><a href="https://blog.rchain.coop/">Community</a>
-              <a href="https://rchain.coop/community.html">Blog</a>
+      return (<><a href="https://discord.gg/C2YW7WvMZv">Discord community</a>
+        <a href="https://rhovision.org">Rho Vision website</a>
               {/*<a href="https://github.com">Support</a>*/}
       </>);
     }
@@ -69,10 +69,10 @@ export function Navigation() {
         <Link className="Logo" to="/">
           <img className="Large"
                src={Assets.logo}
-               alt="RChainWallet" />
+               alt="REV Wallet" />
           <img className="Small"
                src={Assets.logo_notext}
-               alt="RChainWallet" />
+               alt="REV Wallet" />
         </Link>
 
         { MenuToggle() }
