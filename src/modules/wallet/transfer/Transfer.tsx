@@ -59,7 +59,7 @@ export function Transfer() {
     let to_wallet: u.NamedWallet = { ...receiver_wallet, name: receiver_name.value };
     try {
       set_op(u.OPERATION.PENDING);
-      let res = await u.g.transfer(node_context.node, amount.value * 100000000, from_wallet, to_wallet);
+      let res = await u.g.transfer(node_context.node, Math.round(amount.value * 100000000), from_wallet, to_wallet);
 
       if (!res) {
         layout.push_notif({
