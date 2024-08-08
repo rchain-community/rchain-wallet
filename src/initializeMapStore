@@ -1,0 +1,13 @@
+// create a public map channel URI
+// TODO URI should be writw only contract
+contract initializeMapStore(return) = {
+  new mapStore, returnURI, registryInsert(`rho:registry:insertArbitrary`), 
+      stdout(`rho:io:stdout`) in {
+    registryInsert!(*mapStore, *returnURI) |
+    for(@uri <- returnURI) {
+      mapStore!({}) |
+      stdout!(("MapStore initialized. URI: ", uri)) |
+      return!(uri)
+    }
+  }
+}
