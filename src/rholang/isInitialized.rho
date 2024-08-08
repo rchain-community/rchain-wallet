@@ -1,0 +1,44 @@
+contract isInitialized(mapStoreURI, return) = {
+  new lookup, registryLookup(`rho:registry:lookup`), 
+      deployer(`rho:rchain:deployerId`), stdout(`rho:io:stdout`) in {
+    
+    // Lookup the map store channel in the registry
+    registryLookup!(mapStoreURI, *lookup) |
+    
+    for(@mapStore <- lookup) {
+      // Get the deployer REV address
+      new deployerRevAddrCh in {
+        deployerRevAddr!(*deployerRevAddrCh) |
+        for(@deployerRevAddr <- deployerRevAddrCh) {
+          for(map <- mapStore) {
+            match map.get(deployerRevAddr) {
+              Nil => {
+                return!(false) |
+                stdout!(("Deployer REV address ", deployerRevAddr, 
+                         " is not in the map."))
+              }
+              _ => {
+                return!(true) |
+                stdout!(("Deployer REV address ", deployerRevAddr, 
+                         " is already initialized in the map."))
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+contract deployerRevAddr(return) = {
+  new revAddrCh, deployerPubKeyBytesCh, DeployerIdOps(`rho:rchain:deployerId:ops`), 
+      deployerId(`rho:rchain:deployerId`) in {
+    DeployerIdOps!("pubKeyBytes", *deployerId, *deployerPubKeyBytesCh) |
+    for (@deployerPubKeyBytes <- deployerPubKeyBytesCh) {
+      RevAddress!("fromPublicKey", deployerPubKeyBytes, *revAddrCh) |
+      for (@deployerRevAddr <- revAddrCh) {
+        return!(deployerRevAddr)
+      }
+    }
+  }
+}
+
+}
