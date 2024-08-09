@@ -1,0 +1,20 @@
+contract load(key, return) = {
+  new deployer(`rho:rchain:deployerId`), stdout(`rho:io:stdout`) in {
+
+    // Peek at the deployerId channel to get the map
+    for (@deployerMap <= deployer) {
+      match deployerMap.get(key) {
+        Nil => {
+          // If the key is not found, return Nil
+          stdout!(("Load: Key '", key, "' not found. Returning Nil.")) |
+          return!(Nil)
+        }
+        value => {
+          // If the key is found, return the associated value
+          stdout!(("Load: Key '", key, "' found. Returning value: ", value)) |
+          return!(value)
+        }
+      }
+    }
+  }
+}
