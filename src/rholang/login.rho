@@ -1,4 +1,4 @@
-// this insures that a map has been sent to the deployerId channel
+// this insures that a map has been sent to the deployerId channel with a code dictionary entry
 // the map will cantain your private stuff to be added if not already there.
 contract login(isInitializedUri, return) = {
   new isInitializedReturn, lookup, registryLookup(`rho:registry:lookup`), 
@@ -14,9 +14,9 @@ contract login(isInitializedUri, return) = {
       for (@isInitializedResult <- isInitializedReturn) {
         match isInitializedResult {
           false => {
-            // If not initialized, send an empty map to the deployerId channel
-            deployer!({}) |
-            stdout!("Login: Initialized empty map for deployer ID.") |
+            // If not initialized, create a map with the key "codeDict" and an empty map as the value
+            deployer!({ "codeDict": {} }) |
+            stdout!("Login: Initialized map with 'codeDict' for deployer ID.") |
             return!(false)
           }
           true => {
