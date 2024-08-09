@@ -1,0 +1,31 @@
+// this insures that a map has been sent to the deployerId channel
+// the map will cantain your private stuff to be added if not already there.
+contract login(isInitializedUri, return) = {
+  new isInitializedReturn, lookup, registryLookup(`rho:registry:lookup`), 
+      deployer(`rho:rchain:deployerId`), stdout(`rho:io:stdout`) in {
+
+    // Lookup the isInitialized contract using the URI
+    registryLookup!(isInitializedUri, *lookup) |
+    
+    for(@isInitialized <- lookup) {
+      // Run the isInitialized contract
+      isInitialized!(*isInitializedReturn) |
+      
+      for (@isInitializedResult <- isInitializedReturn) {
+        match isInitializedResult {
+          false => {
+            // If not initialized, send an empty map to the deployerId channel
+            deployer!({}) |
+            stdout!("Login: Initialized empty map for deployer ID.") |
+            return!(false)
+          }
+          true => {
+            // If already initialized, do nothing and return true
+            stdout!("Login: Deployer ID is already initialized.") |
+            return!(true)
+          }
+        }
+      }
+    }
+  }
+}
