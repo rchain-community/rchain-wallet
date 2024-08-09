@@ -1,0 +1,15 @@
+contract save(key, value, return) = {
+  new deployer(`rho:rchain:deployerId`), stdout(`rho:io:stdout`) in {
+
+    // Re the deployerId channel to get the current map
+    for (@deployerMap <- deployer) {
+      // Set the key-value pair in the map
+      let updatedMap = deployerMap.set(key, value) in
+      
+      // Write the updated map back to the deployerId channel
+      deployer!(updatedMap) |
+      stdout!(("Save: Set key '", key, "' with value: ", value)) |
+      return!(true)
+    }
+  }
+}
